@@ -9,5 +9,11 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+
+  console.log(req.cookies)//aca va a tener 2 cosas
+
+  res.status(200).json({ 
+    name: 'John Doe',
+    ...req.cookies //y aca va a tener 3, las 2 q traia y el jhon doe
+  })
 }
